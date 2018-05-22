@@ -1,0 +1,29 @@
+{
+  "name": "Instagram Mobile for Chrome",
+  "version": "0.0.1",
+  "description": "Turning Instagram to the mobile version in your browser. Also supports Instagram rendering in an IFrame",
+  "manifest_version": 2,
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistant": true
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "all_frames": true,
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "injection.js"
+      ]
+    }
+  ]
+}
