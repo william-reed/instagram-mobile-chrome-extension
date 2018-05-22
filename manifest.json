@@ -1,13 +1,13 @@
 {
   "name": "Instagram Mobile for Chrome",
   "version": "0.0.1",
-  "description": "Turning Instagram to the mobile version in your browser. Also supports Instagram rendering in an IFrame",
+  "description": "Turns instagram.com to the mobile version in Chrome",
   "manifest_version": 2,
   "background": {
     "scripts": [
       "background.js"
     ],
-    "persistant": true
+    "persistant": false
   },
   "permissions": [
     "webRequest",
@@ -25,5 +25,14 @@
         "injection.js"
       ]
     }
-  ]
+  ],
+  "browser_action": {
+//    "default_icon": {
+//      "16": "images/icon16.png",
+//      "24": "images/icon24.png",
+//      "32": "images/icon32.png"
+//    },
+    "default_title": "Instagram Mobile for Chrome",
+    "default_popup": "popup.html"
+  }
 }
