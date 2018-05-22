@@ -6,13 +6,18 @@ var PLATFORM = "Linux armv8l"
 
 // replace some properties in window.navigator to completely enforce this switch to mobile
 function replaceNavigatorProperties() {
-    var injectionScript = document.createElement("script");
-    injectionScript.text =
-        "navigator.__defineGetter__('userAgent', function(){return '" + USER_AGENT + "';});" +
-        "navigator.__defineGetter__('appVersion', function(){return '" + APP_VERSION + "';});" +
-        "navigator.__defineGetter__('platform', function(){return '" + PLATFORM + "';});";
-    injectionScript.type = "text/javascript";
-    document.documentElement.insertBefore(injectionScript, document.documentElement.firstChild)
+    // only activate if we should!
+    chrome.storage.sync.get(['enabled'], function (result) {
+        if (result.enabled) {
+            var injectionScript = document.createElement("script");
+            injectionScript.text =
+                "navigator.__defineGetter__('userAgent', function(){return '" + USER_AGENT + "';});" +
+                "navigator.__defineGetter__('appVersion', function(){return '" + APP_VERSION + "';});" +
+                "navigator.__defineGetter__('platform', function(){return '" + PLATFORM + "';});";
+            injectionScript.type = "text/javascript";
+            document.documentElement.insertBefore(injectionScript, document.documentElement.firstChild);
+        }
+    });
 }
 
 // call it immediately

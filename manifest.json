@@ -10,6 +10,7 @@
     "persistant": false
   },
   "permissions": [
+    "storage",
     "webRequest",
     "webRequestBlocking",
     "*://*.instagram.com/*"
