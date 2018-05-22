@@ -5,8 +5,12 @@ enableMobile.onclick = function (element) {
     chrome.storage.sync.set({'enabled': enable});
 
     // reload to reflect those changes
-    chrome.tabs.query({active: true, currentWindow: true}, function (arrayOfTabs) {
-        chrome.tabs.reload(arrayOfTabs[0].id);
+    chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+        // if it is instagram, reload
+        console.log(tabs[0])
+        if (tabs[0].url.includes("https://www.instagram.com")) {
+            chrome.tabs.reload(tabs[0].id);
+        }
     });
 };
 
