@@ -11,14 +11,25 @@ function replaceNavigatorProperties() {
         if (result.enabled) {
             var injectionScript = document.createElement("script");
             injectionScript.text =
-                "navigator.__defineGetter__('userAgent', function(){return '" + USER_AGENT + "';});" +
-                "navigator.__defineGetter__('appVersion', function(){return '" + APP_VERSION + "';});" +
-                "navigator.__defineGetter__('platform', function(){return '" + PLATFORM + "';});";
+            "navigator.__defineGetter__('userAgent', function(){return '" + USER_AGENT + "';});" +
+            "navigator.__defineGetter__('appVersion', function(){return '" + APP_VERSION + "';});" +
+            "navigator.__defineGetter__('platform', function(){return '" + PLATFORM + "';});";
             injectionScript.type = "text/javascript";
             document.documentElement.insertBefore(injectionScript, document.documentElement.firstChild);
         }
     });
+    // so heres the problem
+    // chrome storage is asynchronous, and 1 in 50 page loads executes before storage completes
+    // so we need to stall somehow
+    sleep(100);
 }
 
 // call it immediately
 replaceNavigatorProperties();
+
+// im so sorry for using this
+function sleep(miliseconds) {
+    var currentTime = new Date().getTime();
+
+    while (currentTime + miliseconds >= new Date().getTime()) {}
+}

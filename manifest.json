@@ -7,7 +7,7 @@
     "scripts": [
       "background.js"
     ],
-    "persistant": false
+    "persistant": true
   },
   "permissions": [
     "storage",
