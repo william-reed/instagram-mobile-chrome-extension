@@ -31,6 +31,15 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         });
 
         // change the icon
-        chrome.browserAction.setIcon({path: "".concat('icons/icon-16-', enabled ? 'on' : 'off', '.png')});
+        // chrome.browserAction.setIcon({path: "".concat('icons/icon-16-', enabled ? 'on' : 'off', '.png')});
+
+        chrome.browserAction.setIcon({
+            path: {
+                '128': 'icons/icon-128-'.concat(enabled ? 'on' : 'off', '.png'),
+                '48': 'icons/icon-48-'.concat(enabled ? 'on' : 'off', '.png'),
+                '32': 'icons/icon-32-'.concat(enabled ? 'on' : 'off', '.png'),
+                '16': 'icons/icon-16-'.concat(enabled ? 'on' : 'off', '.png')
+            }
+        });
     });
 });
