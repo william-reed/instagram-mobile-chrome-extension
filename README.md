@@ -1,5 +1,7 @@
+![icon](https://github.com/william-reed/instagram-mobile-chrome-extension/raw/master/icons/icon-128-on.png)
 # Instagram Mobile
 ### A chrome extension that turns instagram.com into the mobile version
+
 
 #### How?
 Basically this plugin is replacing the user agent wherever it exists (all requests to instagram, and setting page getters for them) to be a mobile User Agent.
