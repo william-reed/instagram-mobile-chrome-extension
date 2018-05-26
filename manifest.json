@@ -29,11 +29,17 @@
     }
   ],
   "browser_action": {
-   "default_icon": {
-     "128": "icons/icon-128-off.png",
-     "48": "icons/icon-48-off.png",
-     "32": "icons/icon-32-off.png",
-     "16": "icons/icon-16-off.png"
-   }
- }
+    "default_icon": {
+      "128": "icons/icon-128-off.png",
+      "48": "icons/icon-48-off.png",
+      "32": "icons/icon-32-off.png",
+      "16": "icons/icon-16-off.png"
+    }
+  },
+  "icons": {
+    "128": "icons/icon-128-on.png",
+    "48": "icons/icon-48-on.png",
+    "32": "icons/icon-32-on.png",
+    "16": "icons/icon-16-on.png"
+  }
 }
